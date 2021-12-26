@@ -1,0 +1,28 @@
+{
+	"name": "tictactoe",
+	"version": "0.0.0",
+	"description": "",
+	"main": "server.js",
+	"scripts": {
+		"test": "echo \"Testing not implemented\" && false",
+		"lint": "eslint --cache --ext .js .",
+		"start": "node server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bobpaw/tictactoe.git"
+	},
+	"author": "Aiden Woodruff",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/bobpaw/tictactoe/issues"
+	},
+	"homepage": "https://github.com/bobpaw/tictactoe#readme",
+	"dependencies": {
+		"ejs": "^3.1.6",
+		"express": "^4.17.2"
+	},
+	"devDependencies": {
+		"eslint": "^8.5.0"
+	}
+}
