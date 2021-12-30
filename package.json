@@ -6,6 +6,7 @@
 	"scripts": {
 		"test": "echo \"Testing not implemented\" && false",
 		"lint": "eslint --cache --ext .js .",
+		"prestart": "npm run lint",
 		"start": "node server.js"
 	},
 	"repository": {
@@ -20,7 +21,8 @@
 	"homepage": "https://github.com/bobpaw/tictactoe#readme",
 	"dependencies": {
 		"ejs": "^3.1.6",
-		"express": "^4.17.2"
+		"express": "^4.17.2",
+		"morgan": "^1.10.0"
 	},
 	"devDependencies": {
 		"eslint": "^8.5.0"

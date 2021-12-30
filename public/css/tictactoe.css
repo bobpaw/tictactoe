@@ -1,0 +1,16 @@
+.tictactoe {
+  background-color: rgb(245, 245, 245);
+  border-spacing: 0px;
+}
+
+.tictactoe td {
+  border: 2px solid black;
+  height: 50px;
+  width: 50px;
+  padding: 0px;
+}
+
+.tictactoe tr {
+  border: 1px solid magenta;
+}
+
