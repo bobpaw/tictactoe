@@ -89,6 +89,14 @@
 				"sourceType": "module"
 			},
 			"plugins": [ "@typescript-eslint" ]
+		},
+		{
+			"files": [ "test/**/*.test.ts" ],
+			"env": {
+				"mocha": true,
+				"node": true,
+				"browser": false
+			}
 		}
 	]
 }
