@@ -10,7 +10,8 @@
 		"ecmaVersion": 11
 	},
 	"ignorePatterns": [
-		"package-lock.json"
+		"package-lock.json",
+		"public/js/*"
 	],
 	"rules": {
 		"indent": [

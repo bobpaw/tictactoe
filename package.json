@@ -6,7 +6,9 @@
 	"scripts": {
 		"test": "echo \"Testing not implemented\" && false",
 		"lint": "eslint --cache --ext .js .",
-		"prestart": "npm run lint",
+		"compile": "tsc -b src",
+		"clean": "tsc -b --clean src",
+		"prestart": "npm run lint && npm run compile",
 		"start": "node server.js"
 	},
 	"repository": {
@@ -25,6 +27,8 @@
 		"morgan": "^1.10.0"
 	},
 	"devDependencies": {
-		"eslint": "^8.5.0"
+		"@types/jquery": "^3.5.11",
+		"eslint": "^8.5.0",
+		"typescript": "^4.5.4"
 	}
 }

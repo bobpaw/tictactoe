@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"watch": true,
+		"lib": [ "dom", "es2019" ],
+		"removeComments": true,
+		"noEmitOnError": true,
+		"composite": true,
+		"strictBindCallApply": true,
+    "outDir": "../public/js",
+    "declarationDir": "./types",
+    "tsBuildInfoFile": "./tsconfig.tsbuildinfo"
+	},
+	"include": [ "**/*.ts" ]
+}
