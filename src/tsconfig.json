@@ -6,6 +6,7 @@
 		"removeComments": true,
 		"noEmitOnError": true,
 		"composite": true,
+		"module": "ES6",
 		"strictBindCallApply": true,
     "outDir": "../public/js",
     "declarationDir": "./types",
