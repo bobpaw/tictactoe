@@ -1,4 +1,4 @@
 
 import expect from "chai";
 
-import { Tic } from "../src/tic";
+import { Model } from "../src/model";

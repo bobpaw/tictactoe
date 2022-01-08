@@ -2,7 +2,7 @@ export enum Square {
   Blank, X, O, Different
 }
 
-export class Tic {
+export class Model {
 	size: number;
 	_data: Square[];
 
