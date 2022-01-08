@@ -1,6 +1,4 @@
-export enum Square {
-  Blank, X, O, Different
-}
+import { Square } from "square";
 
 export class Model {
 	size: number;
@@ -41,7 +39,7 @@ export class Model {
 		for (let i = 0; i < this.size; ++i) lines.push(this.row(i), this.column(i));
 		for (const l of lines) {
 			const d = this.distill(l);
-			if (d === Square.X || d === Square.O) return d;
+			if (d === Square.Cross || d === Square.Nought) return d;
 		}
 	}
 }
