@@ -5,7 +5,7 @@
 	"main": "server.js",
 	"scripts": {
 		"test": "echo \"Testing not implemented\" && false",
-		"lint": "eslint --cache --ext .js,.ts .",
+		"lint": "eslint --cache .",
 		"compile": "tsc -b src",
 		"clean": "tsc -b --clean src",
 		"prestart": "npm run lint && npm run compile",
