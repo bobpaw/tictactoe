@@ -4,9 +4,9 @@ export class Model {
 	size: number;
 	_data: Square[];
 
-	constructor(s: number) {
-		this.size = s;
-		this._data = Array(s * s).map(() => Square.Blank);
+	constructor(size: number) {
+		this.size = size;
+		this._data = Array(size * size).map(() => Square.Blank);
 	}
 
 	row (r: number): Square[] {
@@ -19,8 +19,8 @@ export class Model {
 		return this._data.filter((_, i) => i % this.size === c);
 	}
 
-	diagonal(topDir: "forward" | "back"): Square[] {
-		if (topDir === "forward") {
+	diagonal(topDir: "forward" | "/" | "back" | "\\"): Square[] {
+		if (topDir === "forward" || topDir === "/") {
 			return this._data.filter((_, i) => i % (this.size + 1) === 0);
 		} else {
 			return this._data.filter((_, i) => i % (this.size - 1) === 0).slice(1, -1);
