@@ -10,8 +10,7 @@
 		"ecmaVersion": 11
 	},
 	"ignorePatterns": [
-		"public/js/*",
-		"**/*.d.ts"
+		"public/js/*"
 	],
 	"rules": {
 		"indent": [
@@ -78,7 +77,13 @@
 	},
 	"overrides": [
 		{
-			"files": [ "src/**/*.ts" ],
+			"files": [
+				"src/**/*.ts",
+				"test/**/*.ts"
+			],
+			"excludedFiles": [
+				"src/types/d.ts"
+			],
 			"env": {
 				"node": false,
 				"browser": true
@@ -93,9 +98,7 @@
 		{
 			"files": [ "test/**/*.test.ts" ],
 			"env": {
-				"mocha": true,
-				"node": true,
-				"browser": false
+				"mocha": true
 			}
 		}
 	]
