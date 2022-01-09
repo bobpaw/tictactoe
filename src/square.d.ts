@@ -1,3 +1,6 @@
 export enum Square {
-  Blank, Cross, Nought, Different
+  Blank = "",
+  Cross = "X",
+  Nought = "O",
+  Different = "/"
 }
