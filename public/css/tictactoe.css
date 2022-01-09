@@ -1,16 +1,21 @@
 .tictactoe {
   background-color: rgb(245, 245, 245);
   border-spacing: 0px;
+  padding: 0px;
+  display: inline-flex;
+  flex-direction: column;
 }
 
-.tictactoe td {
+.tictactoe__row {
+  display: flex;
+  flex-direction: row;
+}
+
+.tictactoe__row__cell {
   border: 2px solid black;
   height: 50px;
   width: 50px;
   padding: 0px;
-}
-
-.tictactoe tr {
-  border: 1px solid magenta;
+  display: block;
 }
 
