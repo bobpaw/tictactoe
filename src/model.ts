@@ -42,4 +42,12 @@ export class Model {
 			if (d === Square.Cross || d === Square.Nought) return d;
 		}
 	}
+
+	get (id: number): Square {
+		return this._data[id];
+	}
+
+	set (id: number, value: Square): void {
+		this._data[id] = value;
+	}
 }
