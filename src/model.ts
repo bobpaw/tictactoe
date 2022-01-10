@@ -1,46 +1,64 @@
 import { Square } from "square";
 
+type Line = {
+	type: "row" | "column" | "diagonal";
+	index: number | "/" | "\\";
+};
+
+type PlayType = Square.Cross | Square.Nought;
+
+// Behavior currently undefined after Model.winningLines().length !== 0.
 export class Model {
 	size: number;
 	_data: Square[];
+	player: PlayType;
+	// TODO: Add line caching maybe idk. Test speed if you do.
 
-	constructor(size: number) {
+	constructor(size: number, player: PlayType) {
 		this.size = size;
 		this._data = Array(size * size).map(() => Square.Blank);
+		this.player = player;
 	}
 
-	row (r: number): Square[] {
-		if (r < 0 || r >= this.size) throw new RangeError(`r must be in the range [0, ${this.size}).`);
-		return this._data.slice(r * this.size, (r + 1) * this.size);
-	}
-  
-	column(c: number): Square[] {
-		if (c < 0 || c >= this.size) throw new RangeError(`c must be in the range [0, ${this.size}).`);
-		return this._data.filter((_, i) => i % this.size === c);
-	}
-
-	diagonal(topDir: "forward" | "/" | "back" | "\\"): Square[] {
-		if (topDir === "forward" || topDir === "/") {
-			return this._data.filter((_, i) => i % (this.size + 1) === 0);
+	readLine (line: Line): Square[] {
+		if (line.type === "diagonal") {
+			if (line.index === "/")
+				return this._data.filter((_, i) => i % (this.size + 1) === 0);
+			else if (line.index === "\\")
+				return this._data.filter((_, i) => i % (this.size - 1) === 0).slice(1, -1);
 		} else {
-			return this._data.filter((_, i) => i % (this.size - 1) === 0).slice(1, -1);
+			if (line.index < 0 || line.index >= this.size)
+				throw new RangeError(`c must be in the range [0, ${this.size}).`);
+			if (line.type === "row")
+				return this._data.slice(
+					line.index as number * this.size,
+					(line.index as number + 1) * this.size
+				);
+			else if (line.type === "column")
+				return this._data.filter((_, i) => i % this.size === this.size);
 		}
 	}
 
-	distill(line: Square[]): Square {
-		return line.reduce((prev, cur) => {
+	distill(line: Line): Square {
+		return this.readLine(line).reduce((prev, cur) => {
 			if (prev === cur) return cur;
 			else return Square.Different;
 		});
 	}
-
-	match (): Square {
-		const lines = [this.diagonal("forward"), this.diagonal("back")];
-		for (let i = 0; i < this.size; ++i) lines.push(this.row(i), this.column(i));
-		for (const l of lines) {
+	
+	winningLines (): Line[] {
+		const lines: Line[] = [
+			{ type: "diagonal", index: "/" },
+			{ type: "diagonal", index: "\\" }
+		];
+		for (let i = 0; i < this.size; ++i) lines.push(
+			{ type: "row", index: i },
+			{ type: "column", index: i }
+		);
+		return lines.filter(l => {
 			const d = this.distill(l);
-			if (d === Square.Cross || d === Square.Nought) return d;
-		}
+			return d === Square.Cross || d === Square.Nought;
+		});
 	}
 
 	get (id: number): Square {
@@ -50,4 +68,10 @@ export class Model {
 	set (id: number, value: Square): void {
 		this._data[id] = value;
 	}
+
+	swapPlayer (): void {
+		this.player = this.player === Square.Nought ? Square.Nought : Square.Cross;
+	}
+
+	// tick (id: number) {}
 }
