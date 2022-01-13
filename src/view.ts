@@ -23,4 +23,8 @@ export class View {
 	getId (object: HTMLDivElement): number {
 		return this.table.find(object).data("flatId");
 	}
+
+	drawLine(...args): void {
+		// TODO: Define plz
+	}
 }
