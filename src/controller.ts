@@ -24,8 +24,9 @@ export class Controller {
 		this.view.mark(id, this.model.player);
 
 		const wins = this.model.winningLines();
-		if (wins.length === 0) this.model.swapPlayer();
-
-		for (const win of wins) this.view.drawLine(win);
+		if (wins.length === 0)
+			this.model.swapPlayer();
+		else
+			for (const win of wins) this.view.drawLine(win);
 	}
 }
