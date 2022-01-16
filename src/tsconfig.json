@@ -1,8 +1,10 @@
 {
 	"extends": "..",
 	"compilerOptions": {
-    "outDir": "../public/js",
-		"declarationDir": "./types"
+		"tsBuildInfoFile": "./tsconfig.tsbuildinfo",
+		"outDir": "../public/js"
 	},
-	"include": [ "**/*.ts" ]
+	"include": [
+		"**/*.ts"
+	]
 }

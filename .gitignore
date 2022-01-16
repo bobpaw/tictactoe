@@ -104,4 +104,4 @@ dist
 .tern-port
 
 public/js/*.js
-src/types/**
+types/*.d.ts

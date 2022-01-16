@@ -1,19 +1,21 @@
 {
-  "compilerOptions": {
-  "target": "es6",
+	"compilerOptions": {
+		"target": "es6",
 		"watch": true,
-		"lib": [ "dom", "es2019" ],
+		"lib": [
+			"dom",
+			"es2019"
+		],
 		"removeComments": true,
 		"noEmitOnError": true,
 		"composite": true,
-		"module": "ES6",
-		"strictBindCallApply": true,
-    "tsBuildInfoFile": "./tsconfig.tsbuildinfo"
-  },
-  "files": [],
-  "references": [
-      {
-        "path": "src"
-      }
-    ]
+		"declarationDir": "./types",
+		"strictBindCallApply": true
+	},
+	"files": [],
+	"references": [
+		{
+			"path": "src"
+		}
+	]
 }
