@@ -4,7 +4,8 @@
 	"description": "",
 	"main": "server.js",
 	"scripts": {
-		"test": "echo \"Testing not implemented\" && false",
+		"pretest": "npm run clean",
+		"test": "mocha",
 		"lint": "eslint --cache .",
 		"compile": "tsc -b src",
 		"clean": "tsc -b --clean src",

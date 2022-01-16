@@ -9,6 +9,7 @@
 		"removeComments": true,
 		"noEmitOnError": true,
 		"composite": true,
+		"declarationMap": true,
 		"declarationDir": "./types",
 		"strictBindCallApply": true
 	},
@@ -16,6 +17,9 @@
 	"references": [
 		{
 			"path": "src"
+		},
+		{
+			"path": "test"
 		}
 	]
 }
