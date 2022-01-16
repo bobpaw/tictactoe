@@ -1,1 +1,1 @@
-import { Tic } from "tic";
+// import { Tic } from "tic";
