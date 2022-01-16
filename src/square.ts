@@ -1,4 +1,4 @@
-export enum Square {
+export const enum Square {
   Blank = "",
   Cross = "X",
   Nought = "O",

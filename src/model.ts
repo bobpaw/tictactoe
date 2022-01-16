@@ -1,4 +1,4 @@
-import { Square } from "square";
+import { Square } from "./square";
 
 type Line = {
 	type: "row" | "column" | "diagonal";
