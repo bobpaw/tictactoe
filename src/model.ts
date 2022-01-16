@@ -70,7 +70,7 @@ export class Model {
 	}
 
 	swapPlayer (): void {
-		this.player = this.player === Square.Nought ? Square.Nought : Square.Cross;
+		this.player = (this.player === Square.Nought ? Square.Cross : Square.Nought);
 	}
 
 	// tick (id: number) {}
