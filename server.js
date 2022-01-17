@@ -1,6 +1,9 @@
-let express = require("express");
-const { join } = require("path");
-const morgan = require("morgan");
+import express from "express";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
+import  morgan from "morgan";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 const port = 8080;
