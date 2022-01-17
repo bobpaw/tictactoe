@@ -1,8 +1,8 @@
-import { join } from "path";
-import express from "express";
-import morgan from "morgan";
+const { join } = require("path");
+const express = require("express");
+const morgan = require("morgan");
 
-export default function Application (rootDir, port) {
+exports.default = function Application (rootDir, port) {
 	const app = express();
 
 	app.set("view engine", "ejs");
@@ -32,4 +32,4 @@ export default function Application (rootDir, port) {
 	}
 
 	return app;
-}
+};
