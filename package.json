@@ -50,6 +50,10 @@
 		"all": true,
 		"reporter": [
 			"text"
+		],
+		"exclude": [
+			"test/",
+			"server.js"
 		]
 	}
 }
