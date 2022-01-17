@@ -1,7 +1,6 @@
 {
-  "extends": "../src",
-  "include": [ "*.test.ts" ],
-  "composite": true,
+  "extends": "..",
+  "include": [ "**/*.test.ts" ],
   "references": [
     { "path": "../src" }
   ]
