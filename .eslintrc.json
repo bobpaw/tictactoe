@@ -96,7 +96,7 @@
 			"plugins": [ "@typescript-eslint" ]
 		},
 		{
-			"files": [ "test/**/*.test.ts" ],
+			"files": [ "test/**/*.test.[jt]s" ],
 			"env": {
 				"mocha": true
 			}

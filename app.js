@@ -2,7 +2,7 @@ const { join } = require("path");
 const express = require("express");
 const morgan = require("morgan");
 
-exports.default = function Application (port) {
+module.exports = function Application (port) {
 	const app = express();
 
 	app.set("view engine", "ejs");
