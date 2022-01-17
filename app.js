@@ -9,6 +9,7 @@ module.exports = function Application (port) {
 
 	app.set("views", join(__dirname, "views"));
 
+	/* istanbul ignore next */
 	if (process.env.NODE_ENV !== "test") {
 		app.use(morgan("dev"));
 	}
@@ -27,6 +28,7 @@ module.exports = function Application (port) {
 		res.status(404).send("404 Not found.");
 	});
 
+	/* istanbul ignore next */
 	if (typeof port === "number") {
 		app.listen(port, () => {
 			console.log(`Listening on port ${port}`);
