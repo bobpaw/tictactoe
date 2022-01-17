@@ -9,7 +9,9 @@ module.exports = function Application (port) {
 
 	app.set("views", join(__dirname, "views"));
 
-	app.use(morgan("dev"));
+	if (process.env.NODE_ENV !== "test") {
+		app.use(morgan("dev"));
+	}
 
 	app.use("/public", express.static(join(__dirname, "public")));
 
