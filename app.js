@@ -2,16 +2,16 @@ const { join } = require("path");
 const express = require("express");
 const morgan = require("morgan");
 
-exports.default = function Application (rootDir, port) {
+exports.default = function Application (port) {
 	const app = express();
 
 	app.set("view engine", "ejs");
 
-	app.set("views", join(rootDir, "views"));
+	app.set("views", join(__dirname, "views"));
 
 	app.use(morgan("dev"));
 
-	app.use("/public", express.static(join(rootDir, "public")));
+	app.use("/public", express.static(join(__dirname, "public")));
 
 	app.get("/", (req, res) => {
 		res.send("Hello world");
