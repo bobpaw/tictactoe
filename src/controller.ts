@@ -6,7 +6,7 @@ export class Controller {
 	view: View;
 	model: Model;
 
-	consturctor (size: number, parent: JQuery) {
+	constructor (size: number, parent: JQuery) {
 		this.view = new View(size);
 		this.model = new Model(size, Square.Nought);
 		
