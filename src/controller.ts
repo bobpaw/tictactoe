@@ -1,5 +1,4 @@
 import { Model } from "./model";
-import { Square } from "./square";
 import { View } from "./view";
 
 export class Controller {
@@ -8,20 +7,23 @@ export class Controller {
 
 	constructor (size: number, parent: JQuery) {
 		this.view = new View(size);
-		this.model = new Model(size, Square.Nought);
+		this.model = new Model(size, "X");
 		
-		this.view.table.on("click", ".tictactoe__row__cell", this.handleClick);
+		this.view.table.on("click", ".tictactoe__row__cell",
+			this.handleClick.bind(this)
+		);
 		
 		parent.append(this.view.table);
 	}
 
 	handleClick (event: JQuery.TriggeredEvent) {
-		// Can probably roll this logic into Model.
+		console.log("handleClick called.");
 		const id = this.view.getId(event.target);
-		if (this.model.get(id) !== Square.Blank) return;
-
-		this.model.set(id, this.model.player);
-		this.view.mark(id, this.model.player);
+		
+		// Attempt to click.
+		if (!this.model.click(id)) return;
+		
+		this.view.mark(id, this.model.get(id));
 
 		const wins = this.model.winningLines();
 		if (wins.length === 0)

@@ -14,10 +14,19 @@ export class Model {
 	player: PlayType;
 	// TODO: Add line caching maybe idk. Test speed if you do.
 
-	constructor(size: number, player: PlayType) {
+	constructor(size: number, player: PlayType | "X" | "O") {
 		this.size = size;
 		this._data = new Array(size * size).fill(Square.Blank);
-		this.player = player;
+		switch (player) {
+		case "X":
+			this.player = Square.Cross;
+			break;
+		case "O":
+			this.player = Square.Nought;
+			break;
+		default:
+			this.player = player;
+		}
 	}
 
 	idsFromLine (line: Line): number[] {
@@ -88,5 +97,13 @@ export class Model {
 		this.player = (this.player === Square.Nought ? Square.Cross : Square.Nought);
 	}
 
-	// tick (id: number) {}
+	click (id: number): boolean {
+		if (this.get(id) === Square.Blank) {
+			this.set(id, this.player);
+			this.swapPlayer();
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
