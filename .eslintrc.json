@@ -81,9 +81,6 @@
 				"src/**/*.ts",
 				"test/**/*.ts"
 			],
-			"excludedFiles": [
-				"src/types/d.ts"
-			],
 			"env": {
 				"node": false,
 				"browser": true
