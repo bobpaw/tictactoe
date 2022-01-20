@@ -36,7 +36,11 @@ export class View {
 		return this.table.find(object).data("flatId");
 	}
 
-	drawLine(...args): void {
-		// TODO: Define plz
+	drawLine(ids: number[]): void {
+		for (const id of ids) {
+			this.table.find(".tictactoe__row__cell")
+				.filter((_, x) => $(x).data("flatId") === id)
+				.css("backgroundColor", "green");
+		}
 	}
 }

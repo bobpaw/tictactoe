@@ -30,6 +30,6 @@ export class Controller {
 		this.view.table.off("click.tictactoe", ".tictactoe__row__cell");
 
 		for (const line of this.model.winningLines())
-			this.view.drawLine(line);
+			this.view.drawLine(this.model.idsFromLine(line));
 	}
 }
