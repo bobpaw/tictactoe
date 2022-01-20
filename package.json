@@ -35,6 +35,7 @@
 		"@types/mocha": "^9.0.0",
 		"@types/sinon": "^10.0.8",
 		"@types/sinon-chai": "^3.2.8",
+		"@types/sinonjs__fake-timers": "^8.1.1",
 		"@typescript-eslint/eslint-plugin": "^5.8.1",
 		"@typescript-eslint/parser": "^5.8.1",
 		"chai": "^4.3.4",
