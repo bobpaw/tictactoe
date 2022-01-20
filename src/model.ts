@@ -15,17 +15,19 @@ export class Model {
 	// TODO: Add line caching maybe idk. Test speed if you do.
 
 	constructor(size: number, player: PlayType | "X" | "O") {
+		if (size < 1) throw new RangeError("Invalid argument for size.");
+		
 		this.size = size;
 		this._data = new Array(size * size).fill(Square.Blank);
 		switch (player) {
 		case "X":
+		case Square.Cross:
 			this.player = Square.Cross;
 			break;
 		case "O":
+		case Square.Nought:
 			this.player = Square.Nought;
 			break;
-		default:
-			this.player = player;
 		}
 	}
 
@@ -54,13 +56,16 @@ export class Model {
 		return this.idsFromLine(line).map(id => this.get(id));
 	}
 
-	setLine (line: Line, values: Square[]): void {
-		if (values.length < this.size)
+	setLine (line: Line, values: Square | Square[]): void {
+		if (Array.isArray(values) && values.length < this.size)
 			throw new Error(`values must be at least length ${this.size}.`);
 		
 		const ids = this.idsFromLine(line);
 		for (let i = 0; i < this.size; ++i)
-			this.set(ids[i], values[i]);
+			if (Array.isArray(values))	
+				this.set(ids[i], values[i]);
+			else
+				this.set(ids[i], values);
 	}
 
 	distill(line: Line): Square {
