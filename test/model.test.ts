@@ -24,7 +24,7 @@ describe("Model", function () {
 	});
 
 	it("should be the right size.", function () {
-		for (let i = 0; i < 10; ++i) {
+		for (let i = 1; i < 10; ++i) {
 			const model = new Model(i, Square.Cross);
 
 			expect(model._data).to.have.lengthOf(i * i);
