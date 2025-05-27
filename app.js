@@ -24,6 +24,12 @@ module.exports = function Application (port) {
 		res.render("index");
 	});
 
+	app.post("/newgame", (req, res) => {
+
+	});
+
+	app.post("/join/:uid", (req, res) => {});
+
 	app.use(function (req, res) {
 		res.status(404).send("404 Not found.");
 	});
